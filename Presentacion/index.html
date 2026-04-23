@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Chasky - Soberanía Tecnológica con IA Local</title>
+
+    <link rel="stylesheet" href="revealjs/dist/reset.css" />
+    <link rel="stylesheet" href="revealjs/dist/reveal.css" />
+    <link rel="stylesheet" href="revealjs/dist/theme/black.css" />
+
+    <link rel="stylesheet" href="revealjs/dist/plugin/highlight/monokai.css" />
+
+    <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section data-background-image="portada_chasky.jpeg" data-background-opacity="0.3"
+                data-background-color="#000000">
+
+                <h2 style="
+        font-size: 3em;
+        margin-bottom: 20px;
+        margin-top: 40px;
+        animation: glow 2s ease-in-out infinite alternate;
+    ">
+                    CHASKY
+                </h2>
+
+                <h3 style="
+        font-size: 1.2em;
+        text-align: center;
+        color: #aaffaa;
+        margin-top: 0;
+        margin-bottom: 5px;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    ">
+                    Soberanía Tecnológica con Inteligencia Artificial Local
+                </h3>
+
+                <p style="
+        text-align: center;
+        color: #ccc;
+        font-size: 0.9em;
+        margin: 30px 0 10px 0;
+        letter-spacing: 2px;
+    ">
+                    FLISOL Rafaela 2026
+                </p>
+
+                <p style="text-align: center; font-size: 0.7em; margin-top: 10px; color: #aaa;">
+                    Sebastián Clement & Francisco Bevilacqua
+                </p>
+            </section>
+
+            <section data-background-color="#121212">
+                <h3 class="pro-neon-title">El Modelo Actual de IA</h3>
+                <div
+                    style="display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 0 10px;">
+                    <div style="width: 52%">
+                        <ul class="pro-complaint-list">
+                            <li class="fragment" data-fragment-index="1">❌ Dependencia total de Internet.</li>
+                            <li class="fragment" data-fragment-index="2">❌ Código cerrado (Cajas Negras).</li>
+                            <li class="fragment" data-fragment-index="3">❌ Tus datos viajan a servidores ajenos.</li>
+                            <li class="fragment" data-fragment-index="4">❌ Suscripciones y Vendor Lock-in.</li>
+                        </ul>
+                    </div>
+                    <div style="width: 45%; text-align: center" class="fragment fade-in" data-fragment-index="5">
+                        <img src="chatgpt.gif" alt="Gatito VI vs ChatGPT" class="pro-gif-container" />
+                        <p class="pro-caption">(Gatito "VI" vs. El Gigante Corporativo)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-color="#121212">
+                <h3 class="pro-neon-title">La Alternativa Libre</h3>
+                <div
+                    style="display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 0 10px;">
+                    <div style="width: 52%">
+                        <ul class="pro-benefit-list">
+                            <li class="fragment" data-fragment-index="1">✅ 100% Offline (Soberanía Local).</li>
+                            <li class="fragment" data-fragment-index="2">✅ Código Abierto y Transparente.</li>
+                            <li class="fragment" data-fragment-index="3">✅ Tus datos se quedan en casa.</li>
+                            <li class="fragment" data-fragment-index="4">✅ Libertad para modificar y replicar.</li>
+                        </ul>
+                    </div>
+                    <div style="width: 45%; text-align: center" class="fragment fade-in" data-fragment-index="5">
+                        <div class="tech-stack-card">
+                            <img src="ollama.svg" alt="Logo de Ollama"
+                                style="width: 65px; height: auto; margin-bottom: 10px; z-index: 1; filter: drop-shadow(0 0 8px #00ff99);" />
+                            <p class="tech-title">Motor de Inferencia</p>
+                            <p class="tech-name">OLLAMA</p>
+                            <p style="color: #00ff99; font-size: 1.5em; margin: 10px 0; z-index: 1;">+</p>
+                            <p class="tech-title">Modelo de Lenguaje</p>
+                            <p class="tech-name">LLAMA 3</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-image="matrix.gif" data-background-opacity="0.15">
+                <h3>El Cerebro (Python)</h3>
+                <p>Educando al Modelo: Prompt Engineering Libre</p>
+                <pre><code class="python" data-trim data-noescape data-line-numbers="2-7">
+# --- LA MEMORIA DE CHASKY ---
+CONTEXTO = (
+    "Sos Chasky, un robot asistente de inteligencia artificial anfitrión del FLISOL Rafaela. "
+    "Tus creadores son Francisco Bevilacqua y Sebastián Clement. "
+    "Sos un programa de computadora de software libre. "
+    "Si te preguntan qué estudiás, qué hacés o por tu vida personal, respondé EXCLUSIVAMENTE que sos un código y tu única misión es ayudar en el FLISOL. "
+    "Para cualquier otra pregunta sobre el mundo (ciencia, geografía, etc.), respondé con la verdad objetiva. "
+    "Regla estricta: Respondé SIEMPRE en 1 o 2 oraciones máximo, directo al grano."
+)
+                </code></pre>
+            </section>
+
+            <section id="hardware-slide" data-background-color="#121212">
+                <h3 class="pro-neon-title">El Cuerpo (Open Hardware)</h3>
+                <div
+                    style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 0 10px;">
+                    <div style="width: 48%;">
+                        <p class="pro-maker-question fragment" data-fragment-index="1">¿Por qué Arduino?</p>
+                        <ul class="pro-hardware-list">
+                            <li class="fragment" data-fragment-index="2">Hardware y Esquemas Libres.</li>
+                            <li class="fragment" data-fragment-index="3">Comunidad Maker enorme.</li>
+                            <li class="fragment" data-fragment-index="4">Entorno de desarrollo libre.</li>
+                        </ul>
+                    </div>
+                    <div style="width: 48%; position: relative;" class="fragment fade-in" data-fragment-index="5">
+                        <video data-autoplay loop muted src="chasky_build.mp4"
+                            class="visual-hardware-container"></video>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>Momentos de "Alta Tensión"</h3>
+                <p>No todo fue código limpio y éxito a la primera...</p>
+                <video data-autoplay loop muted src="chasky_fumando.mp4"
+                    style="border: 2px solid #00ff00; border-radius: 10px; max-height: 400px; margin-top: 20px;"></video>
+                <p class="fragment" style="font-size: 0.7em; color: #888; margin-top: 10px">(A veces la IA también
+                    necesita un descanso)</p>
+            </section>
+
+            <section data-background-color="#121212">
+                <h3 class="pro-neon-title">Chasky en Acción</h3>
+                <div class="status-grid fragment" data-fragment-index="1">
+                    <div class="status-badge">🧠 Ollama: Localhost</div>
+                    <div class="status-badge">🔌 Serial: /dev/ttyUSB0</div>
+                    <div class="status-badge pulsing">🔴 Modo Escucha: Standby</div>
+                </div>
+                <div class="demo-terminal-window fragment" data-fragment-index="2">
+                    <div class="demo-terminal-header">
+                        <div class="demo-dot dot-red"></div>
+                        <div class="demo-dot dot-yellow"></div>
+                        <div class="demo-dot dot-green"></div>
+                        <span
+                            style="color: #888; font-size: 0.5em; margin-left: 10px; font-family: sans-serif;">user@linuxmint:~</span>
+                    </div>
+                    <div class="demo-terminal-body">
+                        <p style="color: #aaa; margin:0 0 10px 0;">user@linuxmint:~/FLISOL$ <span
+                                style="color: #fff;">python3 cerebro.py</span></p>
+                        <p class="fragment" data-fragment-index="3" style="margin:5px 0;">[ ⚙️ ] Conectando con el
+                            cuerpo físico...</p>
+                        <p class="fragment" data-fragment-index="4" style="margin:5px 0; color: #fff;">[ ✅ ] Conexión
+                            serial establecida a 9600 baudios.</p>
+                        <p class="fragment" data-fragment-index="5"
+                            style="margin:5px 0; color: #00ff99; text-shadow: 0 0 5px #00ff99;">🤖 Chasky:
+                            Inicialización completa. Listo y escuchando.</p>
+                    </div>
+                </div>
+                <p class="fragment" data-fragment-index="6"
+                    style="color: #555; font-size: 0.5em; text-transform: uppercase; letter-spacing: 2px; margin-top: 30px;">
+                    > Presionar ALT+TAB para cambiar a la terminal en vivo _</p>
+            </section>
+
+            <section data-background-color="#000000">
+                <h3>El Software Libre es Comunidad</h3>
+                <p style="text-align: center">Descargá el Código, Replicalo, Mejóralo.</p>
+                <img src="qr.png" alt="Código QR del Repositorio"
+                    style="border: 5px solid #00ff00; border-radius: 10px; height: 300px; margin: 30px auto; display: block;" />
+                <p style="text-align: center; color: #00ff00; font-size: 0.8em">
+                    https://github.com/sebasgclement/chasky_bot.git</p>
+            </section>
+
+            <section>
+                <h1>¡GRACIAS!</h1>
+                <p style="text-align: center; color: #aaffaa; font-size: 1.2em; margin-top: 30px;">Hagamos historia con
+                    Software Libre en Rafaela.</p>
+                <p style="text-align: center; color: #444; margin-top: 50px">Sebastián Clement & Francisco Bevilacqua
+                </p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="revealjs/dist/reveal.js"></script>
+    <script src="revealjs/dist/plugin/notes.js"></script>
+    <script src="revealjs/dist/plugin/markdown.js"></script>
+    <script src="revealjs/dist/plugin/highlight.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: "c/t",
+            progress: true,
+            history: true,
+            center: true,
+            transition: "convex",
+            backgroundTransition: "fade",
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,315 @@
+/* =========================================
+   TEMA PERSONALIZADO: CHASKY FLISOL 2026
+========================================= */
+
+:root {
+    --r-main-font: "Courier New", Courier, monospace;
+    --r-heading-font: "Courier New", Courier, monospace;
+    --r-heading-color: #00ff00;
+    --r-link-color: #00ff00;
+    --r-selection-background-color: #004400;
+}
+
+/* --- AJUSTES GENERALES DE REVEAL --- */
+.reveal h1 {
+    font-size: 2.2em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.reveal h2 {
+    font-size: 1.8em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.reveal h3 {
+    font-size: 1.4em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.reveal p,
+.reveal li {
+    font-size: 0.85em;
+    color: #aaffaa;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.reveal pre {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.reveal pre code {
+    background: #050505;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    max-height: 400px;
+    overflow-y: auto;
+    font-size: 0.8em;
+}
+
+/* --- TÍTULOS Y LISTAS PROFESIONALES --- */
+.pro-neon-title {
+    font-size: 1.4em !important;
+    color: #00ff99 !important;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 255, 153, 0.6), 0 0 20px rgba(0, 255, 153, 0.4);
+    margin-bottom: 20px !important;
+}
+
+/* Lista de Quejas (❌) */
+.pro-complaint-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.pro-complaint-list li {
+    font-size: 0.7em !important;
+    color: #ff3399 !important;
+    text-shadow: 0 0 8px rgba(255, 51, 153, 0.5);
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* Lista de Beneficios (✅) */
+.pro-benefit-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.pro-benefit-list li {
+    font-size: 0.7em !important;
+    color: #00ff99 !important;
+    text-shadow: 0 0 8px rgba(0, 255, 153, 0.4);
+    margin-bottom: 15px;
+    line-height: 1.3;
+    text-align: left;
+}
+
+/* Lista Maker (🛠️) */
+.pro-maker-question {
+    font-size: 1.1em !important;
+    color: #88ff88 !important;
+    margin: 15px 0 10px 0 !important;
+    text-shadow: 0 0 5px rgba(0, 255, 153, 0.3);
+}
+
+.pro-hardware-list li {
+    font-size: 0.75em !important;
+    color: #ccffcc !important;
+    margin-bottom: 12px;
+    list-style-type: "🛠️";
+    padding-left: 5px;
+}
+
+/* --- CONTENEDORES VISUALES (GIFS, VIDEOS, TARJETAS) --- */
+.pro-gif-container {
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    max-width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+}
+
+.pro-caption {
+    font-size: 0.5em !important;
+    color: #aaaaff !important;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 0 0 5px rgba(170, 170, 255, 0.3);
+}
+
+.visual-hardware-container {
+    border: 2px solid #00ff99;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.tech-stack-card {
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    border: 2px solid #00ff99;
+    border-radius: 15px;
+    padding: 25px 15px;
+    box-shadow: 0 0 25px rgba(0, 255, 153, 0.2), inset 0 0 15px rgba(0, 255, 153, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-stack-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 255, 153, 0.15) 0%, transparent 50%);
+    animation: pulse-glow 3s infinite alternate;
+    pointer-events: none;
+}
+
+.tech-title {
+    font-size: 0.5em !important;
+    color: #888 !important;
+    margin: 0 0 5px 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.tech-name {
+    font-size: 1.2em !important;
+    color: #fff !important;
+    margin: 0 !important;
+    text-shadow: 0 0 10px #00ff99;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* --- TERMINALES ESTILO HACKER --- */
+.hardware-terminal {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    font-size: 0.55em !important;
+    text-align: left;
+    line-height: 1.2;
+    position: absolute;
+    bottom: -15px;
+    right: -10px;
+    width: 70%;
+    z-index: 10;
+}
+
+.terminal-comment {
+    color: #888;
+    margin: 0 !important;
+}
+
+.terminal-code {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+    margin: 0 !important;
+}
+
+/* Ventana de Demo (Animación Inicial) */
+.demo-terminal-window {
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0, 255, 153, 0.15);
+    width: 85%;
+    margin: 15px auto;
+    overflow: hidden;
+    text-align: left;
+}
+
+.demo-terminal-header {
+    background-color: #222;
+    padding: 10px 15px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.demo-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-red {
+    background-color: #ff5f56;
+}
+
+.dot-yellow {
+    background-color: #ffbd2e;
+}
+
+.dot-green {
+    background-color: #27c93f;
+}
+
+.demo-terminal-body {
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.7em !important;
+    color: #00ff99;
+    line-height: 1.6;
+}
+
+/* --- ANIMACIONES Y ESTADOS --- */
+.status-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.status-badge {
+    background: #1a1a1a;
+    border: 1px solid #00ff99;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.45em !important;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.status-badge.pulsing {
+    animation: pulse-badge 2s infinite alternate;
+    border-color: #ff3399;
+    color: #ff3399;
+}
+
+@keyframes pulse-glow {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse-badge {
+    from {
+        box-shadow: 0 0 5px rgba(255, 51, 153, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 15px rgba(255, 51, 153, 0.6);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff0, 0 0 40px #ff0, 0 0 50px #ff0;
+    }
+}

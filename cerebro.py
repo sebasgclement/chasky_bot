@@ -39,8 +39,9 @@ def hablar(texto):
     print(f"🤖 {NOMBRE_OFICIAL}: {texto}")
     
     # Avisamos al cuerpo que empiece a mover la boca
+    hablar='HABLAR\n'
     if arduino:
-        arduino.write(b'HABLAR\n')
+        arduino.write(hablar.encode('utf-8'))
         
     motor.say(texto)
     motor.runAndWait()
@@ -52,8 +53,9 @@ def hablar(texto):
 # --- 2. SISTEMA DE APAGADO ---
 def shutdown():
     print("\n\n[🛑] APAGADO DE EMERGENCIA")
+    reposo='REPOSO\n'
     if arduino:
-        arduino.write(b'REPOSO\n')
+        arduino.write(reposo.encode('utf-8'))
     hablar("Sistemas cerrados. Nos vemos en la FLISOL.")
     sys.exit(0)
 
@@ -89,8 +91,9 @@ try:
                     print(f"[{NOMBRE_OFICIAL}] ¡Me llamaron! Pensando...")
                     
                     # Avisamos al Arduino que estamos procesando (para que ponga carita de duda)
+                    pensar='PENSANDO\n'
                     if arduino:
-                        arduino.write(b'PENSANDO\n')
+                        arduino.write(pensar.encode('utf-8'))
                     
                     pregunta_limpia = frase
                     for alias in ALIASES:

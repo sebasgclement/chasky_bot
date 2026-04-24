@@ -1,9 +1,9 @@
 import ollama
 import speech_recognition as sr
-import pyttsx3
 import time
 import sys
-import serial 
+import serial
+import os # <-- IMPORTANTE: Cambiamos pyttsx3 por os para usar la terminal
 
 # --- CONFIGURACIÓN ---
 NOMBRE_OFICIAL = "Chasky"
@@ -25,38 +25,36 @@ CONTEXTO = (
     "Sos Chasky, un robot asistente de inteligencia artificial anfitrión del FLISOL Rafaela. "
     "Tus creadores son Francisco Bevilacqua y Sebastián Clement. "
     "Sos un programa de computadora de software libre. "
-    "Si te preguntan qué estudiás, qué hacés o por tu vida personal, respondé EXCLUSIVAMENTE que sos un código y tu única misión es ayudar en el FLISOL. "
+    #"Si te preguntan qué estudiás, qué hacés o por tu vida personal, respondé EXCLUSIVAMENTE que sos un código y tu única misión es ayudar en el FLISOL. "
     "Para cualquier otra pregunta sobre el mundo (ciencia, geografía, etc.), respondé con la verdad objetiva. "
-    "Regla estricta: Respondé SIEMPRE en 1 o 2 oraciones máximo, directo al grano."
+    #"Regla estricta: Respondé SIEMPRE en 1 o 2 oraciones máximo, directo al grano."
 )
 
-# --- 1. INICIALIZAR VOZ ---
-motor = pyttsx3.init()
-motor.setProperty('rate', 130)
-motor.setProperty('voice', 'roa/es-419')
-
+# --- 1. SISTEMA DE VOZ (ESPEAK PARA LIVE CD) ---
 def hablar(texto):
     print(f"🤖 {NOMBRE_OFICIAL}: {texto}")
     
     # Avisamos al cuerpo que empiece a mover la boca
-    hablar='HABLAR\n'
     if arduino:
-        arduino.write(hablar.encode('utf-8'))
+        arduino.write('HABLAR\n'.encode('utf-8'))
         
-    motor.say(texto)
-    motor.runAndWait()
+    # Limpiamos el texto de comillas para que no rompa el comando de la terminal
+    texto_limpio = texto.replace('"', '').replace("'", "")
+    
+    # Ejecutamos espeak (el programa se queda esperando que termine de hablar para seguir)
+    comando_espeak = f'espeak -v es-la -s 140 -p 40 "{texto_limpio}"'
+    os.system(comando_espeak)
     
     # Avisamos al cuerpo que vuelva a posición de reposo
     if arduino:
-        arduino.write(b'REPOSO\n')
+        arduino.write('REPOSO\n'.encode('utf-8'))
 
 # --- 2. SISTEMA DE APAGADO ---
 def shutdown():
     print("\n\n[🛑] APAGADO DE EMERGENCIA")
-    reposo='REPOSO\n'
     if arduino:
-        arduino.write(reposo.encode('utf-8'))
-    hablar("Sistemas cerrados. Nos vemos en la FLISOL.")
+        arduino.write('REPOSO\n'.encode('utf-8'))
+    hablar("Sistemas cerrados. Nos vemos en el FLISOL.")
     sys.exit(0)
 
 # --- 3. CONFIGURACIÓN MICRÓFONO ---
@@ -91,9 +89,8 @@ try:
                     print(f"[{NOMBRE_OFICIAL}] ¡Me llamaron! Pensando...")
                     
                     # Avisamos al Arduino que estamos procesando (para que ponga carita de duda)
-                    pensar='PENSANDO\n'
                     if arduino:
-                        arduino.write(pensar.encode('utf-8'))
+                        arduino.write('PENSANDO\n'.encode('utf-8'))
                     
                     pregunta_limpia = frase
                     for alias in ALIASES:
@@ -105,8 +102,8 @@ try:
                         continue
 
                     # Elección de modelo según la compu
-                    # MODELO = 'llama3'      # <- Usar en la compu de Fran (32GB RAM)
-                    MODELO = 'llama3.2:1b'  # <- Usar en tu compu
+                    MODELO = 'llama3'      # <- Usar en la compu de Fran (32GB RAM)
+                    #MODELO = 'llama3.2:1b'  # <- Usar en tu compu
 
                     res = ollama.chat(
                         model=MODELO, 

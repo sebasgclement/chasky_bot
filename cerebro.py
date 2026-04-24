@@ -3,7 +3,12 @@ import speech_recognition as sr
 import time
 import sys
 import serial
-import os # <-- IMPORTANTE: Cambiamos pyttsx3 por os para usar la terminal
+import os
+from gtts import gTTS
+import pygame
+
+# Inicializar el mezclador de audio para reproducir la voz
+pygame.mixer.init()
 
 # --- CONFIGURACIÓN ---
 NOMBRE_OFICIAL = "Chasky"
@@ -30,7 +35,7 @@ CONTEXTO = (
     #"Regla estricta: Respondé SIEMPRE en 1 o 2 oraciones máximo, directo al grano."
 )
 
-# --- 1. SISTEMA DE VOZ (ESPEAK PARA LIVE CD) ---
+# --- 1. SISTEMA DE VOZ (gTTS + Pygame) ---
 def hablar(texto):
     print(f"🤖 {NOMBRE_OFICIAL}: {texto}")
     
@@ -38,12 +43,25 @@ def hablar(texto):
     if arduino:
         arduino.write('HABLAR\n'.encode('utf-8'))
         
-    # Limpiamos el texto de comillas para que no rompa el comando de la terminal
-    texto_limpio = texto.replace('"', '').replace("'", "")
-    
-    # Ejecutamos espeak (el programa se queda esperando que termine de hablar para seguir)
-    comando_espeak = f'espeak -v es-la -s 140 -p 40 "{texto_limpio}"'
-    os.system(comando_espeak)
+    try:
+        # Generar el audio con la voz de Google (es-us suele sonar mejor y más neutral)
+        tts = gTTS(text=texto, lang='es-us', slow=False)
+        tts.save("respuesta.mp3")
+        
+        # Cargar y reproducir el audio
+        pygame.mixer.music.load("respuesta.mp3")
+        pygame.mixer.music.play()
+        
+        # Esperar a que termine de reproducir para continuar
+        while pygame.mixer.music.get_busy():
+            pygame.time.Clock().tick(10)
+            
+        # Liberar el archivo de audio de la memoria y borrarlo
+        pygame.mixer.music.unload()
+        os.remove("respuesta.mp3")
+        
+    except Exception as e:
+        print(f"[!] Error al generar el audio: {e}")
     
     # Avisamos al cuerpo que vuelva a posición de reposo
     if arduino:
@@ -102,8 +120,7 @@ try:
                         continue
 
                     # Elección de modelo según la compu
-                    MODELO = 'llama3'      # <- Usar en la compu de Fran (32GB RAM)
-                    #MODELO = 'llama3.2:1b'  # <- Usar en tu compu
+                    MODELO = 'llama3'
 
                     res = ollama.chat(
                         model=MODELO, 
